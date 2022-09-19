@@ -26,6 +26,16 @@ source ${ZDOTDIR:-~}/.antidote/antidote.zsh
 # initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
 antidote load
 
+fpath+=( "${HOME}/.dotfiles/darcy.zsh-theme" )
+source "${HOME}/.dotfiles/darcy.zsh-theme"
+
+# emacs keybindings
+#bindkey '^[OA' up-line-or-search
+#bindkey '^[OB' down-line-or-search
+#
+bindkey -e
+#bindkey '^R' history-incremental-search-backward
+
 
 # Vim style keybindings
 #set -o vi

@@ -28,3 +28,5 @@ if which podman >/dev/null 2>&1 && ! which docker >/dev/null 2>&1
 then
     alias docker=podman
 fi
+
+alias tmux='tmux -u -2'
