@@ -61,7 +61,7 @@ git clone "${REPO}" "${BASE}"
 ROOTFILES=(
   aliases bash_profile bashrc condarc 
   env inputrc Rprofile 
-  tmux.conf zshrc
+  tmux.conf zshrc zsh_plugins.txt
 )
 
 for f in "${ROOTFILES[@]}"
@@ -177,6 +177,7 @@ wget -qO "${HOME}/.local/bin/marksman" https://github.com/artempyanykh/marksman/
 
 # https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#r_language_server
 
+R -e 'install.packages("languageserver")'
 
 # https://github.com/rust-lang/rust-analyzer
 curl -L https://github.com/rust-lang/rust-analyzer/releases/latest/download/rust-analyzer-x86_64-unknown-linux-gnu.gz | gunzip -c - > ~/.local/bin/rust-analyzer
