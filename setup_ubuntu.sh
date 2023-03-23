@@ -127,15 +127,15 @@ cd "${HOME}"
 ### https://julialang.org/downloads/
 
 cd /tmp
-wget "https://julialang-s3.julialang.org/bin/linux/x64/1.8/julia-1.8.1-linux-x86_64.tar.gz"
-wget "https://julialang-s3.julialang.org/bin/checksums/julia-1.8.1.md5"
-grep "julia-1.8.1-linux-x86_64.tar.gz" "julia-1.8.1.md5"  | md5sum -c
+wget "https://julialang-s3.julialang.org/bin/linux/x64/1.8/julia-1.8.5-linux-x86_64.tar.gz"
+wget "https://julialang-s3.julialang.org/bin/checksums/julia-1.8.5.md5"
+grep "julia-1.8.5-linux-x86_64.tar.gz" "julia-1.8.5.md5"  | md5sum -c
 
 mkdir -p "${HOME}/.julia"
-tar -C "${HOME}/.julia" -zxf "./julia-1.8.1-linux-x86_64.tar.gz"
+tar -C "${HOME}/.julia" -zxf "./julia-1.8.5-linux-x86_64.tar.gz"
 
-rm -f "./julia-1.8.1-linux-x86_64.tar.gz"
-rm -f "./julia-1.8.1.md5"
+rm -f "./julia-1.8.5-linux-x86_64.tar.gz"
+rm -f "./julia-1.8.5.md5"
 
 # Make sure you add things to path as in "env"
 if [ -f "${HOME}/.env" ]
@@ -173,7 +173,7 @@ npm install --global vscode-langservers-extracted
 npm install --global dockerfile-language-server-nodejs
 
 julia --project=~/.julia/environments/nvim-lspconfig -e 'using Pkg; Pkg.add("LanguageServer")'
-wget -qO "${HOME}/.local/bin/marksman" https://github.com/artempyanykh/marksman/releases/download/2022-09-13/marksman-linux
+wget -qO "${HOME}/.local/bin/marksman" https://github.com/artempyanykh/marksman/releases/download/2023-03-04/marksman-linux
 
 # https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#r_language_server
 
