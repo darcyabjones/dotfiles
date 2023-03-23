@@ -39,7 +39,7 @@ vim.cmd([[
 -- Add additional capabilities supported by nvim-cmp
 -- See: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 capabilities.textDocument.completion.completionItem.documentationFormat = { 'markdown', 'plaintext' }
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -127,7 +127,7 @@ end
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches.
 -- Add your language server below:
-local servers = { 'bashls', 'awk-ls', 'pyright', 'julials', 'r_language_server', 'rust_analyzer', 'marksman', 'html', 'cssls', 'tsserver', 'dockerls' }
+local servers = { 'bashls', 'pyright', 'julials', 'r_language_server', 'rust_analyzer', 'marksman', 'html', 'cssls', 'tsserver', 'dockerls' }
 
 -- Call setup
 for _, lsp in ipairs(servers) do

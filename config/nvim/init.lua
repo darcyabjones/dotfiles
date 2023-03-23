@@ -67,8 +67,6 @@ vim.cmd [[
   autocmd Filetype r setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
 ]]
 
-wo.nocompatible = true
-
 home = os.getenv("HOME")
 in_wsl = os.getenv("WSL_DISTRO_NAME") ~= nil
 vim.opt.clipboard = 'unnamedplus'
