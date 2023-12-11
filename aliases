@@ -18,7 +18,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-if [ -e /usr/bin/nvim ]; then
+if [ -e /usr/bin/nvim ] || [ -e "${HOME}/.local/bin/nvim" ]; then
     alias vim='nvim'
 elif [ -e /usr/bin/gvim ]; then
     alias vim='gvim -v'

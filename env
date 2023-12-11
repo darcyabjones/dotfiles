@@ -4,14 +4,23 @@ export VISUAL=nvim
 export EDITOR="${VISUAL}"
 
 export XDG_CONFIG_HOME="${HOME}/.config"
-export PATH="${HOME}/.local/bin:${PATH}"
+
+if [ -d "${HOME}/.local" ]
+then
+  export PATH="${HOME}/.local/bin:${PATH}"
+  export MANPATH="${HOME}/.local/share/man:${MANPATH}"
+  export LD_LIBRARY_PATH="${HOME}/.local/lib:${LD_LIBRARY_PATH}"
+  export LIBRARY_PATH="${HOME}/.local/lib:${LIBRARY_PATH}"
+  export CPATH="${HOME}/.local/include:${CPATH}"
+  export INCLUDE="${HOME}/.local/include:${INCLUDE}"
+fi
 
 if [ -f "${HOME}/.cargo/env" ];
 then
     source "${HOME}/.cargo/env"
 fi
 
-JULIA_VERSION="1.8.5"
+JULIA_VERSION="1.9.4"
 JULIA_BASE="${HOME}/.julia/julia-${JULIA_VERSION}"
 
 if [ -d "${JULIA_BASE}" ]
