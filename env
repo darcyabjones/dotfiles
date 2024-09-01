@@ -1,35 +1,47 @@
 #stty -ixon
 
-export VISUAL=nvim
+UNAME=$(uname)
+export VISUAL=vim
 export EDITOR="${VISUAL}"
 
 export XDG_CONFIG_HOME="${HOME}/.config"
-export PATH="${HOME}/.local/bin:${PATH}"
+
+if [ -d "${HOME}/.local" ]
+then
+  export PATH="${HOME}/.local/bin:${PATH}"
+fi
 
 if [ -f "${HOME}/.cargo/env" ];
 then
-    source "${HOME}/.cargo/env"
+  source "${HOME}/.cargo/env"
 fi
 
-JULIA_VERSION="1.8.1"
-JULIA_BASE="${HOME}/.julia/julia-${JULIA_VERSION}"
-
-if [ -d "${JULIA_BASE}" ]
+#mkdir -p "${HOME}/.nvm"
+if [ -d "${HOME}/.nvm" ]
 then
-  export PATH="${JULIA_BASE}/bin:${PATH}"
-  export LD_LIBRARY_PATH="${JULIA_BASE}/lib:${LD_LIBRARY_PATH}"
-  export LIBRARY_PATH="${JULIA_BASE}/lib:${LIBRARY_PATH}"
-  export CPATH="${JULIA_BASE}/include:${CPATH}"
-  export INCLUDE="${JULIA_BASE}/include:${INCLUDE}"
-  export MANPATH="${JULIA_BASE}/share/man:${MANPATH}"
+  export NVM_DIR="${HOME}/.nvm"
 fi
 
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "${NVM_DIR}/nvm.sh" ] && . "${NVM_DIR}/nvm.sh" # This loads nvm
+# Mac specific stuff
+if [ "${UNAME}" = Darwin ]
+then
+  if [ -d "/Applications/Alacritty.app/Contents/MacOS" ]
+  then
+    export PATH="/Applications/Alacritty.app/Contents/MacOS/:${PATH}"
+  fi
 
+  if [ -s "$(brew --prefix nvm)/nvm.sh" ]
+  then
+    . "$(brew --prefix nvm)/nvm.sh"
+    . "$(brew --prefix nvm)/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+  fi
+fi
 
-mkdir -p "${HOME}/.local/lib/R/site-library"
-export R_LIBS_USER="${HOME}/.local/lib/R/site-library"
+#mkdir -p "${HOME}/.local/lib/R/site-library"
+if [ -d "${HOME}/.local/lib/R/site-library" ]
+then
+  export R_LIBS_USER="${HOME}/.local/lib/R/site-library"
+fi
 
 # Used by antidote
 export ZDOTDIR="${HOME}"
@@ -38,8 +50,3 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LANGUAGE=en_US.UTF-8
 
-# if [ "${TERM:-}" = "xterm" ]
-# then
-#   export TERM="xterm-256color"
-# fi
-#export TERM=xterm-24bit

@@ -1,7 +1,7 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=50000
+SAVEHIST=10000
 setopt extendedglob
 
 autoload -U promptinit; promptinit
@@ -58,14 +58,14 @@ bindkey -e
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('${HOME}/.miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('${HOME}/.mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "${HOME}/.miniconda3/etc/profile.d/conda.sh" ]; then
-        . "${HOME}/.miniconda3/etc/profile.d/conda.sh"
+    if [ -f "${HOME}/.mambaforge/etc/profile.d/conda.sh" ]; then
+        . "${HOME}/.mambaforge/etc/profile.d/conda.sh"
     else
-        export PATH="${HOME}/.miniconda3/bin:$PATH"
+        export PATH="${HOME}/.mambaforge/bin:$PATH"
     fi
 fi
 unset __conda_setup
