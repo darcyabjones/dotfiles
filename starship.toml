@@ -1,0 +1,302 @@
+# version: 1.0.0
+
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = false
+
+format = '($username$hostname:)$directory $character'
+continuation_prompt = '[...](bold fg:yellow)'
+right_format = """
+$singularity\
+$vcsh\
+$fossil_branch\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$pijul_channel\
+$docker_context\
+$package\
+$c\
+$cmake\
+$cobol\
+$daml\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$fennel\
+$golang\
+$guix_shell\
+$haskell\
+$haxe\
+$helm\
+$java\
+$julia\
+$kotlin\
+$gradle\
+$lua\
+$nim\
+$nodejs\
+$ocaml\
+$opa\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$raku\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$solidity\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$conda\
+$meson\
+$spack\
+$custom\
+$status
+"""
+
+palette = 'nightfox'
+
+[character]
+format = '$symbol '
+success_symbol = '[\$](bold fg:green)'
+error_symbol = '[\$](bold fg:red)'
+vimcmd_symbol = '[:](bold green)'
+vimcmd_replace_one_symbol = '[R](bold green)'
+vimcmd_replace_symbol = '[R](bold purple)'
+vimcmd_visual_symbol = '[I](bold yellow)'
+
+[directory]
+format = '[$path]($style)'
+truncation_length = 1
+truncate_to_repo = true
+style = 'bold yellow'
+
+[fill]
+symbol = ' '
+
+[hostname]
+format = '[@$hostname]($style)'
+style = 'bold yellow'
+ssh_symbol = ''
+
+[username]
+format = '[$user]($style)'
+show_always = false
+style_user = 'bold yellow'
+style_root = 'bold red'
+
+[aws]
+disabled = true
+
+[azure]
+disabled = true
+
+[battery]
+disabled = true
+
+[c]
+format = '[$name:]($style)[$version](bold fg:yellow) '
+version_format = 'v${raw}'
+symbol = 'C'
+detect_extensions = ['c', 'h', 'cpp', 'C', 'cc']
+style = 'bold fg:blue'
+disabled = false
+
+[cmake]
+format = '[$symbol:]($style)[$version](bold fg:yellow) '
+version_format = 'v${raw}'
+symbol = 'cmake'
+style = 'bold fg:blue'
+disabled = false
+
+[cmd_duration]
+min_time = 30_000
+format = '[last duration:]($style)[$duration](bold yellow) '
+style = 'bold fg:blue'
+disabled = false
+
+[conda]
+format = '[$symbol:]($style)[$environment](bold fg:yellow) '
+symbol = 'conda'
+ignore_base = true
+truncation_length = 1
+style = 'bold fg:blue'
+disabled = false
+
+[container]
+format = '[$symbol:]($style)[$name](bold fg:yellow) '
+symbol = 'container'
+style = 'bold fg:blue'
+disabled = false
+
+[docker_context]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[git_branch]
+format = '[$symbol:]($style)[$branch](bold fg:yellow)( [\($remote_name:]($style)[$remote_branch](bold fg:yellow)[\)]($style)) '
+symbol = 'git'
+style = 'bold fg:blue'
+disabled = false
+
+[git_commit]
+disabled = true
+
+[git_state]
+format = '[$state](bold fg:yellow)( [\(]($style)[$progress_current/$progress_total](bold fg:yellow)[\)]($style)) '
+style = 'bold fg:blue'
+disabled = false
+
+[git_status]
+format = '[\[]($style)$all_status$ahead_behind[\]]($style) '
+conflicted = '[!](bold fg:red)'
+ahead = '[⇡${count}](bold fg:yellow)'
+diverged = '[⇕⇡${ahead_count}⇣${behind_count}](bold fg:yellow)'
+behind = '[⇣${count}](bold fg:yellow)'
+up_to_date = ''
+untracked = '[U](bold fg:red)'
+stashed = ''
+modified = '[M](bold fg:yellow)'
+staged = '[+](bold fg:green)'
+renamed = '[R](bold fg:yellow)'
+deleted = '[D](bold fg:yellow)'
+typechanged = '[T](bold fg:yellow)'
+style = 'bold fg:blue'
+ignore_submodules = false
+#windows_starship = '/mnt/c/Users/username/scoop/apps/starship/current/starship.exe'
+disabled = false
+
+[golang]
+format = '[$symbol]($style)([:]($style)[$version](bold fg:yellow) )([\(req $mod_version\)]($not_capable_style) )'
+symbol = 'go'
+version_format = 'v${raw}'
+style = 'bold fg:blue'
+not_capable_style = 'bold fg:red'
+disabled = false
+
+[guix_shell]
+format = '[$symbol]($style)'
+symbol = 'guix'
+style = 'bold fg:blue'
+disabled = false
+
+[julia]
+format = '[$symbol:]($style)[$version](bold fg:yellow) '
+version_format = 'v${raw}'
+symbol = 'julia'
+style = 'bold fg:blue'
+disabled = false
+
+
+[nodejs]
+format = '[$symbol]($style)[:]($style)[$version](bold fg:yellow)( [\(req $engines_version\)]($not_capable_style)) '
+version_format = 'v${raw}'
+detect_files = ['package.json', '.node-version', '.nvmrc', '!.bashrc', '!.zshrc']
+symbol = 'node'
+style = 'bold fg:blue'
+disabled = false
+
+[package]
+disabled = true
+
+[perl]
+format = '[$symbol:]($style)[$version](bold fg:yellow) '
+version_format = 'v${raw}'
+symbol = 'perl'
+style = 'bold fg:blue'
+disabled = false
+
+[python]
+format = '[$symbol:]($style)[$version](bold fg:yellow) '
+version_format = 'v${raw}'
+symbol = 'python'
+style = 'bold fg:blue'
+disabled = false
+
+[rlang]
+format = '[$symbol:]($style)[$version](bold fg:yellow) '
+version_format = 'v${raw}'
+symbol = 'R'
+style = 'bold fg:blue'
+disabled = false
+
+[ruby]
+format = '[$symbol:]($style)[$version](bold fg:yellow) '
+version_format = 'v${raw}'
+symbol = 'ruby'
+style = 'bold fg:blue'
+disabled = false
+
+[rust]
+# Should we set toolchain?
+format = '[$symbol:]($style)[$version](bold fg:yellow) '
+version_format = 'v${raw}'
+symbol = 'rust'
+style = 'bold fg:blue'
+disabled = false
+
+[singularity]
+format = '[$symbol:]($style)[$env](bold fg:yellow) '
+symbol = 'singularity'
+style = 'bold fg:blue'
+disabled = false
+
+[spack]
+format = '[$symbol:]($style)[$environment](bold fg:yellow) '
+symbol = 'spack'
+ignore_base = true
+truncation_length = 1
+style = 'bold fg:blue'
+disabled = false
+
+[vagrant]
+format = '[$symbol:]($style)[$version](bold fg:yellow) '
+symbol = 'vagrant'
+version_format = 'v${raw}'
+style = 'bold fg:blue'
+disabled = false
+
+[palettes.dracula]
+background = "#282a36"
+current_line = "#44475a"
+foreground = "#f8f8f2"
+comment = "#6272a4"
+cyan = "#8be9fd"
+green = "#50fa7b"
+orange = "#ffb86c"
+pink = "#ff79c6"
+purple = "#bd93f9"
+red = "#ff5555"
+yellow = "#f1fa8c"
+
+[palettes.nightfox]
+red = "#c94f6d"
+green = "#81b29a"
+purple = "#9d79d6"
+yellow = "#dbc074"
+os_bg = "#71839b"
+os_fg = "#131a24"
+dir_bg = "#81b29a"
+dir_fg = "#192330"
+git_bg = "#dbc074"
+git_fg = "#212e3f"
+lang_bg = "#719cd6"
+lang_fg = "#29394f"
+

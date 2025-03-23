@@ -1,0 +1,7 @@
+[user]
+	name = darcyabjones
+	email = darcy.ab.jones@gmail.com
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false

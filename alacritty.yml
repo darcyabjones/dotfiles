@@ -84,8 +84,8 @@ window:
   # Window title
   #title: Alacritty
 
-  # Allow terminal applications to change Alacritty's window title.
-  #dynamic_title: true
+ #  Allow terminal applications to change Alacritty's window title.
+ dynamic_title: true
 
   # Window class (Linux/BSD only):
   #class:
@@ -104,7 +104,7 @@ window:
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  history: 10000
+  history: 1000
 
   # Scrolling distance multiplier.
   #multiplier: 3
@@ -119,7 +119,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: Inconsolata Nerd Font Propo
+    family: FiraCode Nerd Font Mono
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -158,7 +158,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 15
+  size: 13
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -374,6 +374,89 @@ schemes:
     #     args: ["Hello, World!"]
     #
     #command: None
+
+  # Nightfox Alacritty Colors
+  ## name: nightfox
+  ## upstream: https://github.com/edeneast/nightfox.nvim/raw/main/extra/nightfox/alacritty.toml
+ 
+  nightfox: &nightfox
+    primary:
+      background: "#192330"
+      foreground: "#cdcecf"
+      dim_foreground: "#aeafb0"
+      bright_foreground: "#d6d6d7"
+  
+    cursor:
+      text: "#cdcecf"
+      cursor: "#aeafb0"
+  
+    vi_mode_cursor:
+      text: "#cdcecf"
+      cursor: "#63cdcf"
+  
+    search:
+      matches:
+        foreground: "#cdcecf"
+        background: "#3c5372"
+      focused_match:
+        foreground: "#cdcecf"
+        background: "#81b29a"
+  
+    footer_bar:
+      foreground: "#cdcecf"
+      background: "#29394f"
+
+    hints:
+      start:
+        foreground: "#cdcecf"
+        background: "#f4a261"
+      end:
+        foreground: "#cdcecf"
+        background: "#29394f"
+  
+    selection:
+      text: "#cdcecf"
+      background: "#2b3b51"
+
+    normal:
+      black: "#393b44"
+      red: "#c94f6d"
+      green: "#81b29a"
+      yellow: "#dbc074"
+      brown: "#dbc074"
+      blue: "#719cd6"
+      magenta: "#9d79d6"
+      cyan: "#63cdcf"
+      white: "#dfdfe0"
+  
+    bright:
+      black: "#575860"
+      red: "#d16983"
+      green: "#8ebaa4"
+      yellow: "#e0c989"
+      brown: "#e0c989"
+      blue: "#86abdc"
+      magenta: "#baa1e2"
+      cyan: "#7ad5d6"
+      white: "#e4e4e5"
+  
+    dim:
+      black: "#30323a"
+      red: "#ab435d"
+      green: "#6e9783"
+      yellow: "#baa363"
+      brown: "#baa363"
+      blue: "#6085b6"
+      magenta: "#8567b6"
+      cyan: "#54aeb0"
+      white: "#bebebe"
+  
+    indexed_colors:
+      - index: 16
+        color: "#f4a261"
+      - index: 17
+        color: "#d67ad2"
+
   # Colors (Dracula)
   dracula: &dracula
     # Default colors
@@ -442,7 +525,7 @@ schemes:
       text: CellBackground
       cursor: CellForeground
 
-colors: *dracula
+colors: *nightfox
 
 selection:
   # This string contains all characters that are used as separators for

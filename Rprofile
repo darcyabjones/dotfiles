@@ -1,6 +1,6 @@
-local({r <- getOption("repos")
-      r["CRAN"] <- "https://cran.curtin.edu.au/"
-      options(repos=r)})
+#local({r <- getOption("repos")
+#      r["CRAN"] <- "https://cran.curtin.edu.au/"
+#      options(repos=r)})
 
 options(stringsAsFactors=FALSE)
 

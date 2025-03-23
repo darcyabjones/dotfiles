@@ -1,8 +1,12 @@
-set editing-mode vi
+set editing-mode emacs
 
-TAB:menu-complete
 set show-all-if-ambiguous on
 set menu-complete-display-prefix on
+
+# next tab(s) will cycle through matches
+TAB: menu-complete
+# shift tab cycles backward
+"\e[Z": menu-complete-backward
 
 "\e[A":history-search-backward
 "\e[B":history-search-forward

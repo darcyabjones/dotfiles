@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f "/usr/share/bash-completion/bash_completion" ]
+  then
+    . "/usr/share/bash-completion/bash_completion"
+  elif [[ -s "${HOMEBREW_PREFIX:-}/etc/profile.d/bash_completion.sh" ]]
+  then
+    . "${HOMEBREW_PREFIX:-}/etc/profile.d/bash_completion.sh"
+  elif [ -f "/etc/bash_completion" ]
+  then
+    . "/etc/bash_completion"
+  fi
+fi

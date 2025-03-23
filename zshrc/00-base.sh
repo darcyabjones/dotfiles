@@ -1,7 +1,7 @@
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
-HISTSIZE=50000
-SAVEHIST=10000
+HISTSIZE=10000
+SAVEHIST=1000
 setopt extendedglob
 
 autoload -U promptinit; promptinit
@@ -14,20 +14,6 @@ zstyle ':completion:*' menu select
 zmodload -i zsh/complete
 zmodload -i zsh/complist
 
-# End of lines added by compinstall
-
-
-### Paths etc
-source "${HOME}/.aliases"
-source "${HOME}/.env"
-
-# source antidote
-source ${ZDOTDIR:-~}/.antidote/antidote.zsh
-# initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
-antidote load
-
-fpath+=( "${HOME}/.dotfiles/darcy.zsh-theme" )
-source "${HOME}/.dotfiles/darcy.zsh-theme"
 
 # emacs keybindings
 #bindkey '^[OA' up-line-or-search
@@ -55,18 +41,3 @@ bindkey -e
 
 #bindkey -M viins '^[[A' up-line-or-search
 #bindkey -M viins '^[[B' down-line-or-search
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('${HOME}/.mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "${HOME}/.mambaforge/etc/profile.d/conda.sh" ]; then
-        . "${HOME}/.mambaforge/etc/profile.d/conda.sh"
-    else
-        export PATH="${HOME}/.mambaforge/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
