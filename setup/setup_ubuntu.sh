@@ -48,6 +48,8 @@ git config --global user.email "${EMAIL}"
 
 mkdir -p "${HOME}/.local"
 mkdir -p "${HOME}/.local/bin"
+mkdir -p "${HOME}/.local/lib"
+mkdir -p "${HOME}/.local/share/man/man1"
 
 mkdir -p "${HOME}/.config"
 
@@ -83,11 +85,18 @@ ln -sf "${BASE}/config/nvim/lua" "${HOME}/.config/nvim/lua"
 
 cd /tmp
 
-wget https://downloads.rclone.org/v1.59.2/rclone-v1.59.2-linux-amd64.deb
-sudo apt install ./rclone-v1.59.2-linux-amd64.deb
+wget https://downloads.rclone.org/v1.65.0/rclone-v1.65.0-linux-amd64.deb
+sudo apt install ./rclone-v1.65.0-linux-amd64.deb
 
-rm rclone-v1.59.2-linux-amd64.deb
+rm rclone-v1.65.0-linux-amd64.deb
+#wget https://downloads.rclone.org/v1.65.0/rclone-v1.65.0-linux-amd64.zip
+#unzip rclone-v1.65.0-linux-amd64.zip 
+#mv rclone-v1.65.0-linux-amd64/rclone "${HOME}/.local/bin/"
+#mv rclone-v1.65.0-linux-amd64/rclone.1 "${HOME}/.local/share/man/man1"
+#rm -rf -- rclone-v1.65.0-linux-amd64*
 cd "${HOME}"
+
+
 
 
 ## Neovim
@@ -98,12 +107,22 @@ wget https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.deb
 sudo apt install nvim-linux64.deb
 
 rm nvim-linux64.deb
+
+wget https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+tar -zxf nvim-linux64.tar.gz 
+cd nvim-linux64
+mv bin/* "${HOME}/.local/bin/"
+mkdir -p "${HOME}/.local/lib" && mv lib/nvim "${HOME}/.local/lib"
+mkdir -p "${HOME}/.local/share/man/man1" && mv man/man1/nvim.1 "${HOME}/.local/share/man/man1/"
+mv share/nvim/ "${HOME}/.local/share/"
+mkdir -p "${HOME}/.local/share/locale/en_GB/LC_MESSAGES" && mv share/locale/en_GB/LC_MESSAGES/nvim.mo "${HOME}/.local/share/locale/en_GB/LC_MESSAGES"
+
 cd "${HOME}"
 
 
 ## NVM, NPM, Node
 
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
@@ -127,15 +146,15 @@ cd "${HOME}"
 ### https://julialang.org/downloads/
 
 cd /tmp
-wget "https://julialang-s3.julialang.org/bin/linux/x64/1.8/julia-1.8.1-linux-x86_64.tar.gz"
-wget "https://julialang-s3.julialang.org/bin/checksums/julia-1.8.1.md5"
-grep "julia-1.8.1-linux-x86_64.tar.gz" "julia-1.8.1.md5"  | md5sum -c
+wget "https://julialang-s3.julialang.org/bin/linux/x64/1.9/julia-1.9.4-linux-x86_64.tar.gz"
+wget "https://julialang-s3.julialang.org/bin/checksums/julia-1.9.4.md5"
+grep "julia-1.9.4-linux-x86_64.tar.gz" "julia-1.9.4.md5"  | md5sum -c
 
 mkdir -p "${HOME}/.julia"
-tar -C "${HOME}/.julia" -zxf "./julia-1.8.1-linux-x86_64.tar.gz"
+tar -C "${HOME}/.julia" -zxf "./julia-1.9.4-linux-x86_64.tar.gz"
 
-rm -f "./julia-1.8.1-linux-x86_64.tar.gz"
-rm -f "./julia-1.8.1.md5"
+rm -f "./julia-1.9.4-linux-x86_64.tar.gz"
+rm -f "./julia-1.9.4.md5"
 
 # Make sure you add things to path as in "env"
 if [ -f "${HOME}/.env" ]
@@ -164,6 +183,12 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \
 | sh -s -- -y --no-modify-path --default-toolchain nightly --profile default 
 source "${HOME}/.cargo/env"
 
+#wget https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.20.8.tar.gz
+#tar -zxf v0.20.8.tar.gz
+#cd tree-sitter-0.20.8/
+#PREFIX="${HOME}.local" make all
+#PREFIX="${HOME}.local" make install
+#PREFIX="${HOME}/.local" make install
 
 ## Used in neovim
 npm install --global pyright
@@ -173,7 +198,7 @@ npm install --global vscode-langservers-extracted
 npm install --global dockerfile-language-server-nodejs
 
 julia --project=~/.julia/environments/nvim-lspconfig -e 'using Pkg; Pkg.add("LanguageServer")'
-wget -qO "${HOME}/.local/bin/marksman" https://github.com/artempyanykh/marksman/releases/download/2022-09-13/marksman-linux
+wget -qO "${HOME}/.local/bin/marksman" https://github.com/artempyanykh/marksman/releases/download/2023-03-04/marksman-linux
 
 # https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#r_language_server
 
