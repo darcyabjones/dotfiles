@@ -1,7 +1,9 @@
 [user]
-	name = darcyabjones
-	email = darcy.ab.jones@gmail.com
+name = darcyabjones
+email = darcy.ab.jones@gmail.com
+
 [init]
-	defaultBranch = main
+defaultBranch = main
+
 [pull]
-	rebase = false
+rebase = false
