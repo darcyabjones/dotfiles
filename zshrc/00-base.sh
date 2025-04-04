@@ -3,16 +3,9 @@ HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=1000
 setopt extendedglob
+set -o noclobber
 
 autoload -U promptinit; promptinit
-
-autoload -Uz compinit
-compinit
-
-zstyle :compinstall filename '~/.zshrc'
-zstyle ':completion:*' menu select
-zmodload -i zsh/complete
-zmodload -i zsh/complist
 
 
 # emacs keybindings

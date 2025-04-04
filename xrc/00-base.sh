@@ -23,3 +23,7 @@ DOTFILES_OS="$(${DOTFILES_PREFIX}/bin/find_os.sh)"
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias cp-force="$(command -v 'cp')"
+alias mv-force="$(command -v 'mv')"
+alias cp='cp -i'
+alias mv='mv -i'

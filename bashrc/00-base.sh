@@ -11,7 +11,7 @@ esac
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-shopt -o noclobber
+set -o noclobber
 shopt -s extglob
 shopt -s dotglob
 shopt -s nullglob
