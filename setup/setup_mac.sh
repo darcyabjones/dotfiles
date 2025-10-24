@@ -42,7 +42,8 @@ brew install \
   mosh \
   parallel \
   sqlite \
-  zstd
+  zstd \
+  air
 
 brew install --cask julia r rstudio
 

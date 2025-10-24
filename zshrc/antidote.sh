@@ -1,5 +1,5 @@
 # source antidote
-source ~/.config/antidote/antidote.zsh
+source "${HOME}/.config/antidote/antidote.zsh"
 
 export ANTIDOTE_HOME=~/.cache/antidote
 

@@ -9,7 +9,7 @@ autoload -Uz compinit
 # Need to keep -i flag for now.
 compinit -i
 
-zstyle :compinstall filename '~/.zshrc'
+zstyle :compinstall filename "${HOME}/.zshrc"
 zstyle ':completion:*' menu select
 zmodload -i zsh/complete
 zmodload -i zsh/complist
