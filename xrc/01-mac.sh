@@ -23,5 +23,14 @@ then
   export PATH="${ALACRITTY_PREFIX}/Contents/MacOS/:${PATH}"
 fi
 
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+if [ -z "${CPPFLAGS}" ]
+then
+    export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+else
+    export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include ${CPPFLAGS}"
+fi
+
 # Sets dircolors for mac
 export LSCOLORS="ExCxdxdxBxheaghbadAbAbxx"

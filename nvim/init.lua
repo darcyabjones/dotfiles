@@ -38,6 +38,16 @@ vim.bo.softtabstop = 4
 vim.bo.tabstop = 4
 vim.bo.expandtab = true
 
+-- Custom filetypes
+vim.filetype.add({
+  -- Detect and assign filetype based on the extension of the filename
+  extension = {
+    -- For files ending with .gsrc set type as greyscript
+    gsrc = "greyscript",
+
+  }
+})
+
 -- Indentation
 vim.cmd [[
   autocmd Filetype html setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
@@ -47,6 +57,7 @@ vim.cmd [[
   autocmd Filetype lua setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   autocmd Filetype rust setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
   autocmd Filetype r setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  autocmd Filetype greyscript setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
 ]]
 
 -- Clipboard

@@ -1,6 +1,12 @@
 return {
   {
-    "mason-org/mason.nvim"
+    "mason-org/mason.nvim",
+    opts = {
+        registries = {
+          "github:mason-org/mason-registry",
+          -- "lua:mason_registry", -- "custom-registry" here is what you'd pass to require() the index module (see 1) above)
+        }
+    }
   },
   {
     "neovim/nvim-lspconfig",
