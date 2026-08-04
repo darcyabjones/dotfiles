@@ -29,7 +29,7 @@ endif
 tmuxconf = tmux/00-base.conf tmux/plugins_tpm.conf tmux/theme_nightfox.conf tmux/98-hide_statusbar.conf tmux/99-end.conf
 
 
-all: $(zsh) $(bash) $(tmux) $(nvim) ~/.inputrc ~/.dircolors ~/.alacritty.yml ~/.gitconfig ~/.condarc ~/.Rprofile
+all: $(zsh) $(bash) $(tmux) $(nvim) ~/.inputrc ~/.dircolors ~/.config/alacritty/alacritty.toml ~/.gitconfig ~/.condarc ~/.Rprofile
 
 antidote: ~/.config/antidote
 	echo "DONE"
@@ -67,7 +67,8 @@ conda: ~/.condarc
 ~/.dircolors: dircolors/nightfox.dircolors
 	cp $< $@
 
-~/.alacritty.yml: alacritty.yml
+~/.config/alacritty/alacritty.toml: alacritty.toml
+	mkdir -p $(dir $@)
 	cp $< $@
 
 ~/.gitconfig: gitconfig
@@ -79,7 +80,7 @@ conda: ~/.condarc
 ~/.Rprofile: Rprofile
 	cp $< $@
 
-~/.config/nvim: nvim
+~/.config/nvim: ./nvim
 	mkdir -p ~/.config
 	ln -sf $< $@
 

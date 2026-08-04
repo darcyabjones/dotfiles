@@ -1,0 +1,157 @@
+[colors.bright]
+black = "#575860"
+blue = "#86abdc"
+cyan = "#7ad5d6"
+green = "#8ebaa4"
+magenta = "#baa1e2"
+red = "#d16983"
+white = "#e4e4e5"
+yellow = "#e0c989"
+
+[colors.cursor]
+cursor = "#aeafb0"
+text = "#cdcecf"
+
+[colors.dim]
+black = "#30323a"
+blue = "#6085b6"
+cyan = "#54aeb0"
+green = "#6e9783"
+magenta = "#8567b6"
+red = "#ab435d"
+white = "#bebebe"
+yellow = "#baa363"
+
+[colors.footer_bar]
+background = "#29394f"
+foreground = "#cdcecf"
+
+[colors.hints.end]
+background = "#29394f"
+foreground = "#cdcecf"
+
+[colors.hints.start]
+background = "#f4a261"
+foreground = "#cdcecf"
+
+[[colors.indexed_colors]]
+color = "#f4a261"
+index = 16
+
+[[colors.indexed_colors]]
+color = "#d67ad2"
+index = 17
+
+[colors.normal]
+black = "#393b44"
+red = "#c94f6d"
+green = "#81b29a"
+yellow = "#dbc074"
+blue = "#719cd6"
+magenta = "#9d79d6"
+cyan = "#63cdcf"
+white = "#dfdfe0"
+
+[colors.primary]
+background = "#192330"
+bright_foreground = "#d6d6d7"
+dim_foreground = "#aeafb0"
+foreground = "#cdcecf"
+
+[colors.search.focused_match]
+background = "#81b29a"
+foreground = "#cdcecf"
+
+[colors.search.matches]
+background = "#3c5372"
+foreground = "#cdcecf"
+
+[colors.selection]
+background = "#2b3b51"
+text = "#cdcecf"
+
+[colors.vi_mode_cursor]
+cursor = "#63cdcf"
+text = "#cdcecf"
+
+[cursor]
+unfocused_hollow = true
+
+[cursor.style]
+blinking = "Off"
+shape = "Block"
+
+[font]
+size = 13
+
+[font.normal]
+family = "FiraCode Nerd Font Mono"
+style = "Regular"
+
+[hints]
+alphabet = "jfkdls;ahgurieowpq"
+
+[[hints.enabled]]
+command = "open"
+hyperlinks = true
+post_processing = true
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini:|gopher:|https:|http:|news:|file:|git:|ssh:|ftp:)[^\u0000-\u001F\u007F-<>\"\\s{-}\\^⟨⟩`]+"
+
+[hints.enabled.binding]
+key = "U"
+mods = "Control|Shift"
+
+[hints.enabled.mouse]
+enabled = true
+mods = "None"
+
+[[keyboard.bindings]]
+action = "SpawnNewInstance"
+key = "N"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "CreateNewWindow"
+key = "T"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0015"
+key = "Back"
+mods = "Super"
+
+[[keyboard.bindings]]
+chars = "\u001Bb"
+key = "Left"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001Bf"
+key = "Right"
+mods = "Alt"
+
+[[keyboard.bindings]]
+chars = "\u001BOH"
+key = "Left"
+mode = "AppCursor"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001BOF"
+key = "Right"
+mode = "AppCursor"
+mods = "Command"
+
+[scrolling]
+history = 1000
+
+[selection]
+save_to_clipboard = false
+semantic_escape_chars = """,│`|:"' ()[]{}<>\t"""
+
+[window]
+dynamic_title = true
+
+[window.padding]
+x = 5
+y = 10
