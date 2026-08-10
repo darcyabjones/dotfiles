@@ -32,5 +32,11 @@ else
     export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include ${CPPFLAGS}"
 fi
 
+
+if [ -d "/opt/podman" ]
+then
+    export PATH="${PATH}:/opt/podman/bin"
+fi
+
 # Sets dircolors for mac
 export LSCOLORS="ExCxdxdxBxheaghbadAbAbxx"
